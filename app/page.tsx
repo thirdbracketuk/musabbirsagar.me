@@ -32,8 +32,8 @@ export default function HomePage() {
     <main className="max-w-6xl mx-auto px-4 py-8">
       {/* Hero Section */}
       <section className="mb-16">
-        <div className="border-t border-l border-r border-dashed border-zinc-600 bg-zinc-900/50 rounded-t-2xl overflow-hidden">
-          <div className="border-b border-zinc-600 px-8 py-6 bg-zinc-800/80 rounded-t-2xl">
+        <div className="border-t border-l border-r border-zinc-700/30 bg-zinc-900/50 rounded-t-2xl overflow-hidden">
+          <div className="border-b border-zinc-800 px-8 py-6 bg-zinc-800/80 rounded-t-2xl">
             <h1 className="text-sm font-mono text-zinc-400">
               musabbir@portfolio:~$ intro
             </h1>
