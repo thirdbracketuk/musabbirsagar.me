@@ -8,6 +8,19 @@ import {
   HiOutlineUser,
 } from "react-icons/hi";
 import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
+import { Share_Tech_Mono, Inter } from "next/font/google";
+
+const shareTechMono = Share_Tech_Mono({
+  weight: "400", // This font only comes in weight 400
+  subsets: ["latin"],
+  variable: "--font-display", // Creates a CSS variable name
+});
+
+// 3. Configure Inter (Body Font)
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-body", // Creates a CSS variable name
+});
 
 export const metadata: Metadata = {
   title: "Musabbir Sagar - Portfolio",
@@ -20,91 +33,113 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="min-h-screen bg-gradient-to-br from-zinc-900 via-gray-900 to-zinc-800">
-        <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
-          <div className="bg-zinc-800/20 backdrop-blur-md border border-zinc-700/30 rounded-full px-8 py-4 shadow-lg">
-            <div className="flex items-center space-x-6">
-              <a
-                href="/"
-                className="flex items-center text-zinc-300 hover:text-white transition-colors"
-                title="Home"
-              >
-                <HiOutlineHome className="w-5 h-5" />
-              </a>
-              <a
-                href="/blog"
-                className="flex items-center md:space-x-2 text-zinc-300 hover:text-white transition-colors"
-              >
-                <HiOutlineDocumentText className="w-5 h-5" />
-                <span className="text-sm font-medium hidden md:inline">
-                  Blog
-                </span>
-              </a>
-              <a
-                href="/portfolio"
-                className="flex items-center md:space-x-2 text-zinc-300 hover:text-white transition-colors"
-              >
-                <HiOutlineBriefcase className="w-5 h-5" />
-                <span className="text-sm font-medium hidden md:inline">
-                  Portfolio
-                </span>
-              </a>
-              <a
-                href="/about"
-                className="flex items-center md:space-x-2 text-zinc-300 hover:text-white transition-colors"
-              >
-                <HiOutlineUser className="w-5 h-5" />
-                <span className="text-sm font-medium hidden md:inline">
-                  About
-                </span>
-              </a>
-              <a
-                href="/contact"
-                className="flex items-center md:space-x-2 text-zinc-300 hover:text-white transition-colors"
-              >
-                <HiOutlineMail className="w-5 h-5" />
-                <span className="text-sm font-medium hidden md:inline">
-                  Contact
-                </span>
-              </a>
+    <html
+      lang="en"
+      className={`${shareTechMono.variable} ${inter.variable} antialiased`}
+    >
+      <body className="min-h-screen bg-zinc-950 text-zinc-100">
+        {/* Floating Nav */}
+        <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50">
+          <div className="bg-zinc-900/80 backdrop-blur-md border border-zinc-700/50 rounded-full px-6 py-3 shadow-xl shadow-black/40">
+            <div className="flex items-center gap-1">
+              {/* Terminal dots */}
+              <div className="flex items-center gap-1.5 mr-4 pr-4 border-r border-zinc-700/50">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+                <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
+                <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+              </div>
+              <div className="flex items-center gap-0.5">
+                <a
+                  href="/"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full text-zinc-400 hover:text-white hover:bg-zinc-700/50 transition-all text-xs"
+                  title="Home"
+                >
+                  <HiOutlineHome className="w-3.5 h-3.5" />
+                  <span className="hidden md:inline">~</span>
+                </a>
+                <a
+                  href="/about"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full text-zinc-400 hover:text-white hover:bg-zinc-700/50 transition-all text-xs"
+                >
+                  <HiOutlineUser className="w-3.5 h-3.5" />
+                  <span className="hidden md:inline">about</span>
+                </a>
+                <a
+                  href="/portfolio"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full text-zinc-400 hover:text-white hover:bg-zinc-700/50 transition-all text-xs"
+                >
+                  <HiOutlineBriefcase className="w-3.5 h-3.5" />
+                  <span className="hidden md:inline">work</span>
+                </a>
+                <a
+                  href="/blog"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full text-zinc-400 hover:text-white hover:bg-zinc-700/50 transition-all text-xs"
+                >
+                  <HiOutlineDocumentText className="w-3.5 h-3.5" />
+                  <span className="hidden md:inline">blog</span>
+                </a>
+                <a
+                  href="/contact"
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full text-zinc-400 hover:text-white hover:bg-zinc-700/50 transition-all text-xs"
+                >
+                  <HiOutlineMail className="w-3.5 h-3.5" />
+                  <span className="hidden md:inline">contact</span>
+                </a>
+              </div>
             </div>
           </div>
         </nav>
-        <div className="pt-20 pb-16">{children}</div>
 
-        {/* Footer */}
-        <footer className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-40">
-          <div className="bg-zinc-800/20 backdrop-blur-md border border-zinc-700/30 rounded-full px-6 py-3 shadow-lg">
-            <div className="flex items-center space-x-6">
-              <div className="flex items-center space-x-4 text-xs font-mono text-zinc-400">
-                <span>© 2025 Musabbir</span>
-                <span className="text-zinc-600">|</span>
+        <div className="pt-20">{children}</div>
+
+        {/* Normal footer */}
+        <footer className="border-t border-zinc-800 mt-16">
+          <div className="max-w-6xl mx-auto px-4 py-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="font-mono text-xs text-zinc-500">
+                <span className="text-zinc-600">$ </span>
+                <span>musabbir@portfolio</span>
+                <span className="text-zinc-600"> — </span>
+                <span>© 2025</span>
               </div>
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center gap-4">
                 <a
                   href="https://github.com/musabbirsagar"
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-zinc-300 hover:text-white transition-colors"
+                  rel="noopener"
+                  className="text-zinc-500 hover:text-white transition-colors"
+                  aria-label="GitHub"
                 >
                   <FaGithub className="w-4 h-4" />
                 </a>
                 <a
                   href="https://linkedin.com/in/musabbirsagar"
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-zinc-300 hover:text-white transition-colors"
+                  rel="noopener"
+                  className="text-zinc-500 hover:text-white transition-colors"
+                  aria-label="LinkedIn"
                 >
                   <FaLinkedin className="w-4 h-4" />
                 </a>
                 <a
                   href="https://facebook.com/musabbirsagar"
                   target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-zinc-300 hover:text-white transition-colors"
+                  rel="noopener"
+                  className="text-zinc-500 hover:text-white transition-colors"
+                  aria-label="Facebook"
                 >
                   <FaFacebook className="w-4 h-4" />
+                </a>
+              </div>
+              <div className="font-mono text-xs text-zinc-600">
+                Co-founder at{" "}
+                <a
+                  href="https://thirdbracket.co.uk"
+                  target="_blank"
+                  rel="noopener"
+                  className="text-zinc-400 hover:text-white transition-colors"
+                >
+                  Third Bracket
                 </a>
               </div>
             </div>

@@ -1,91 +1,100 @@
 import { HiOutlineMail, HiOutlineLocationMarker } from "react-icons/hi";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
+import { HiOutlineCalendar } from "react-icons/hi";
 
 export default function ContactPage() {
   return (
-    <main className="max-w-6xl mx-auto px-4 py-8">
-      <div className="max-w-2xl mx-auto border border-zinc-700/70 bg-zinc-900/50 rounded-2xl overflow-hidden">
-        {/* Terminal Header */}
-        <div className="border-b border-zinc-800 px-8 py-6 bg-zinc-800/80 rounded-t-2xl">
-          <h1 className="text-sm font-mono text-zinc-400">
-            musabbir@portfolio:~$ contact
-          </h1>
+    <main className="max-w-4xl mx-auto px-4 py-8">
+      <div className="term-window max-w-2xl mx-auto">
+        <div className="term-bar">
+          <span className="font-mono text-xs text-zinc-400 ml-10">musabbir@portfolio — ~/contact</span>
         </div>
+        <div className="p-6 space-y-6">
 
-        {/* Content */}
-        <div className="p-8 font-mono text-sm">
-          <div className="mb-8">
-            <span className="text-zinc-500 text-xs">
-              musabbir@portfolio:~$ cat contact.info
-            </span>
-          </div>
+          <p className="term-prompt">cat contact.info</p>
 
-          <div className="space-y-8">
-            {/* Contact Information */}
-            <div className="border border-zinc-700 p-6">
-              <h2 className="text-white font-bold text-base mb-4 border-b border-zinc-700 pb-3">
-                Contact Information
-              </h2>
-
-              <div className="space-y-4">
-                <div className="flex items-center space-x-4">
-                  <HiOutlineMail className="w-5 h-5 text-zinc-400" />
-                  <span className="text-white font-medium text-base">
-                    musabbir@thirdbracket.co.uk
-                  </span>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <HiOutlineLocationMarker className="w-5 h-5 text-zinc-400" />
-                  <span className="text-white font-medium text-base">
-                    Bangladesh & UK
-                  </span>
+          {/* Book a call — most prominent */}
+          <div className="border border-green-700/40 bg-green-900/10 rounded p-5">
+            <p className="font-mono text-xs text-zinc-500 mb-3">// preferred contact method</p>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <HiOutlineCalendar className="w-5 h-5 text-green-400" />
+                <div>
+                  <p className="text-sm font-bold text-white">Book a call</p>
+                  <p className="font-mono text-xs text-zinc-500 mt-0.5">30 min · free</p>
                 </div>
               </div>
+              <a
+                href="https://cal.com/sagarmusabbir"
+                target="_blank"
+                rel="noopener"
+                className="font-mono text-xs px-4 py-2 border border-green-700/60 text-green-400 hover:border-green-500 hover:bg-green-900/20 rounded transition-all"
+              >
+                ./schedule ↗
+              </a>
             </div>
+          </div>
 
-            {/* Social Links */}
-            <div className="border border-zinc-700 p-6">
-              <h3 className="text-white font-bold text-base mb-4 border-b border-zinc-700 pb-3">
-                Social Links
-              </h3>
-              <div className="grid grid-cols-1 gap-3">
+          {/* Contact info */}
+          <div className="border border-zinc-700/50 rounded p-5">
+            <p className="font-mono text-xs text-zinc-500 mb-4">// direct contact</p>
+            <div className="space-y-4">
+              <div className="flex items-center gap-4">
+                <HiOutlineMail className="w-4 h-4 text-zinc-500" />
                 <a
-                  href="https://github.com/musabbirsagar"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center space-x-4 hover:text-white transition-colors py-2"
+                  href="mailto:musabbir@thirdbracket.co.uk"
+                  className="font-mono text-sm text-zinc-300 hover:text-white transition-colors"
                 >
-                  <FaGithub className="w-5 h-5 text-zinc-400" />
-                  <span className="text-white font-medium text-base">
-                    musabbirsagar
-                  </span>
+                  musabbir@thirdbracket.co.uk
                 </a>
-                <a
-                  href="https://linkedin.com/in/musabbirsagar"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center space-x-4 hover:text-white transition-colors py-2"
-                >
-                  <FaLinkedin className="w-5 h-5 text-zinc-400" />
-                  <span className="text-white font-medium text-base">
-                    musabbirsagar
-                  </span>
-                </a>
-                <a
-                  href="https://twitter.com/musabbirsagar"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center space-x-4 hover:text-white transition-colors py-2"
-                >
-                  <FaTwitter className="w-5 h-5 text-zinc-400" />
-                  <span className="text-white font-medium text-base">
-                    musabbirsagar
-                  </span>
-                </a>
+              </div>
+              <div className="flex items-center gap-4">
+                <HiOutlineLocationMarker className="w-4 h-4 text-zinc-500" />
+                <span className="font-mono text-sm text-zinc-400">Bangladesh &amp; UK</span>
               </div>
             </div>
           </div>
+
+          {/* Social */}
+          <div className="border border-zinc-700/50 rounded p-5">
+            <p className="font-mono text-xs text-zinc-500 mb-4">// social links</p>
+            <div className="space-y-3">
+              <a
+                href="https://github.com/musabbirsagar"
+                target="_blank"
+                rel="noopener"
+                className="flex items-center gap-4 group"
+              >
+                <FaGithub className="w-4 h-4 text-zinc-500 group-hover:text-white transition-colors" />
+                <span className="font-mono text-sm text-zinc-400 group-hover:text-white transition-colors">
+                  github.com/musabbirsagar
+                </span>
+              </a>
+              <a
+                href="https://linkedin.com/in/musabbirsagar"
+                target="_blank"
+                rel="noopener"
+                className="flex items-center gap-4 group"
+              >
+                <FaLinkedin className="w-4 h-4 text-zinc-500 group-hover:text-white transition-colors" />
+                <span className="font-mono text-sm text-zinc-400 group-hover:text-white transition-colors">
+                  linkedin.com/in/musabbirsagar
+                </span>
+              </a>
+              <a
+                href="https://facebook.com/musabbirsagar"
+                target="_blank"
+                rel="noopener"
+                className="flex items-center gap-4 group"
+              >
+                <FaFacebook className="w-4 h-4 text-zinc-500 group-hover:text-white transition-colors" />
+                <span className="font-mono text-sm text-zinc-400 group-hover:text-white transition-colors">
+                  facebook.com/musabbirsagar
+                </span>
+              </a>
+            </div>
+          </div>
+
         </div>
       </div>
     </main>

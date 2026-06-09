@@ -1,3 +1,74 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  /* Scanline effect for terminal feel */
+
+  /* Set Inter as the default font for the entire website */
+  body {
+    font-family: var(--font-body), sans-serif;
+  }
+
+  /* Set Share Tech Mono as the default font for all headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display), monospace;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.03) 2px,
+      rgba(0, 0, 0, 0.03) 4px
+    );
+    pointer-events: none;
+    z-index: 9999;
+  }
+}
+
+@layer components {
+  /* Shared terminal window wrapper */
+  .term-window {
+    @apply border border-zinc-700/60 bg-zinc-900/60 rounded-lg overflow-hidden;
+  }
+
+  /* Terminal title bar */
+  .term-bar {
+    @apply flex items-center gap-2 px-4 py-3 bg-zinc-800/80 border-b border-zinc-700/60;
+  }
+
+  .term-bar::before {
+    content: "";
+    @apply block w-3 h-3 rounded-full bg-red-500/60;
+    /* FIX: Using standard CSS var format that plays perfectly with Tailwind tokens */
+    box-shadow:
+      18px 0 0 rgba(var(--color-yellow-500), 0.6),
+      36px 0 0 rgba(var(--color-green-500), 0.6);
+  }
+
+  /* Prompt prefix */
+  .term-prompt {
+    font-family: var(--font-display), monospace;
+    @apply text-xs text-zinc-500;
+  }
+
+  .term-prompt::before {
+    content: "$ ";
+    @apply text-zinc-600;
+  }
+
+  /* Cursor blink */
+  .cursor::after {
+    content: "▋";
+    @apply text-zinc-400 animate-pulse;
+  }
+}

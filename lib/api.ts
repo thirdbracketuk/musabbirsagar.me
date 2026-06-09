@@ -2,7 +2,9 @@ const API_BASE = "https://thirdbracket.co.uk/api";
 
 export async function fetchBlogs() {
   try {
-    const response = await fetch(`${API_BASE}/blog`);
+    const response = await fetch(`${API_BASE}/blog`, {
+      next: { revalidate: 60 },
+    });
     const data = await response.json();
     return data.docs || [];
   } catch (error) {
@@ -13,7 +15,9 @@ export async function fetchBlogs() {
 
 export async function fetchWork() {
   try {
-    const response = await fetch(`${API_BASE}/work`);
+    const response = await fetch(`${API_BASE}/work`, {
+      next: { revalidate: 60 },
+    });
     const data = await response.json();
     return data.docs || [];
   } catch (error) {

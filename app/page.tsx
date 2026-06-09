@@ -1,170 +1,187 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import { fetchBlogs, fetchWork } from "@/lib/api";
 import Image from "next/image";
 
-export default function HomePage() {
-  const [blogs, setBlogs] = useState<any[]>([]);
-  const [works, setWorks] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    Promise.all([fetchBlogs(), fetchWork()]).then(([blogData, workData]) => {
-      setBlogs(blogData);
-      setWorks(workData);
-      setLoading(false);
-    });
-  }, []);
+export default async function HomePage() {
+  const [blogs, works] = await Promise.all([fetchBlogs(), fetchWork()]);
 
   const recentBlogs = blogs.slice(0, 3);
   const recentWorks = works.slice(0, 3);
 
-  if (loading) {
-    return (
-      <main className="max-w-6xl mx-auto px-4 py-8">
-        <p className="text-center py-12">Loading...</p>
-      </main>
-    );
-  }
-
   return (
-    <main className="max-w-6xl mx-auto px-4 py-8">
-      {/* Hero Section */}
-      <section className="mb-16">
-        <div className="border-t border-l border-r border-zinc-700/30 bg-zinc-900/50 rounded-t-2xl overflow-hidden">
-          <div className="border-b border-zinc-800 px-8 py-6 bg-zinc-800/80 rounded-t-2xl">
-            <h1 className="text-sm font-mono text-zinc-400">
-              musabbir@portfolio:~$ intro
-            </h1>
-          </div>
-          <div className="p-8 text-center">
-            <div className="mb-6">
-              <span className="text-zinc-500 text-xs font-mono">
-                musabbir@portfolio:~$ whoami
-              </span>
-            </div>
-            <h1 className="text-5xl font-bold mb-6 text-white">
-              Hi, I'm Musabbir Sagar
-            </h1>
-            <p className="text-xl text-white font-medium mb-8 max-w-2xl mx-auto">
-              Full-stack developer and designer creating digital experiences
-              that matter.
-            </p>
-            <div className="space-x-4">
-              <a
-                href="/portfolio"
-                className="bg-gradient-to-r from-slate-200 to-gray-300 text-slate-900 font-medium px-6 py-3 rounded-lg hover:from-slate-300 hover:to-gray-400 transition-all"
-              >
-                View Portfolio
-              </a>
-              <a
-                href="/blog"
-                className="bg-white/5 backdrop-blur-sm border border-zinc-500/50 text-white px-6 py-3 rounded-lg hover:bg-white/10 hover:border-zinc-400/50 transition-all"
-              >
-                Read Blog
-              </a>
-            </div>
-          </div>
+    <main className="max-w-4xl mx-auto px-4 py-8 space-y-8">
+      {/* Hero terminal window */}
+      <div className="term-window">
+        <div className="term-bar">
+          <span className=" text-xs text-zinc-400 ml-10">
+            musabbir@portfolio — ~
+          </span>
         </div>
-      </section>
-
-      {/* Recent Blogs */}
-      <section className="py-16 mb-16">
-        <h2 className="text-3xl font-bold mb-8 text-white">
-          Recent Blog Posts
-        </h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {recentBlogs.map((blog: any) => (
-            <div
-              key={blog.slug}
-              className="bg-zinc-800/60 backdrop-blur-sm border border-zinc-700/50 rounded-lg p-6 hover:shadow-lg hover:bg-zinc-800/80 transition-all cursor-pointer"
-              onClick={() =>
-                window.open(
-                  `https://thirdbracket.co.uk/blog/${blog.slug}`,
-                  "_blank"
-                )
-              }
+        <div className="p-8">
+          <p className="term-prompt mb-2">whoami</p>
+          <h1 className="text-3xl font-display font-bold text-white mt-4 mb-2">
+            Musabbir Sagar
+          </h1>
+          <p className="text-zinc-400 text-sm mb-6">
+            Full-stack developer &amp; designer. Co-founder at{" "}
+            <a
+              href="https://thirdbracket.co.uk"
+              target="_blank"
+              rel="noopener"
+              className="text-zinc-300 hover:text-white border-b border-zinc-600 hover:border-zinc-400 transition-all"
             >
-              {blog.featuredImage.url && (
-                <Image
-                  width={400}
-                  height={200}
-                  src={`https://thirdbracket.co.uk${blog.featuredImage.url}`}
-                  alt={blog.title}
-                  className="w-full h-48 object-cover rounded mb-4"
-                />
-              )}
-              <h3 className="text-xl font-semibold mb-2 text-white">
-                {blog.title}
-              </h3>
-              <p className="text-zinc-300 mb-4">{blog.summary}</p>
-              <span className="text-sm text-zinc-200 bg-zinc-700/50 px-2 py-1 rounded">
-                {blog.category.name}
-              </span>
-            </div>
-          ))}
-        </div>
-        <div className="text-center mt-8">
-          <a
-            href="/blog"
-            className="text-zinc-300 hover:text-white hover:underline transition-colors"
-          >
-            View all posts →
-          </a>
-        </div>
-      </section>
+              Third Bracket
+            </a>
+            , a web design &amp; branding agency based in Manchester.
+          </p>
 
-      {/* Recent Projects */}
-      <section className="py-16">
-        <h2 className="text-3xl font-bold mb-8 text-white">Recent Projects</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {recentWorks.map((work: any) => (
-            <div
-              key={work.slug}
-              className="bg-zinc-800/60 backdrop-blur-sm border border-zinc-700/50 rounded-lg p-6 hover:shadow-lg hover:bg-zinc-800/80 transition-all cursor-pointer"
-              onClick={() =>
-                window.open(
-                  `https://thirdbracket.co.uk/work/${work.slug}`,
-                  "_blank"
-                )
-              }
+          <p className="term-prompt mb-4">ls ./actions</p>
+          <div className="flex flex-wrap gap-3 mt-4">
+            <a
+              href="/portfolio"
+              className="  text-xs px-4 py-2 border border-zinc-600 text-zinc-300 hover:border-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-all rounded"
             >
-              {work.heroImage.url && (
-                <Image
-                  width={400}
-                  height={200}
-                  src={`https://thirdbracket.co.uk${work.heroImage.url}`}
-                  alt={work.title}
-                  className="w-full h-48 object-cover rounded mb-4"
-                />
-              )}
-              <h3 className="text-xl font-semibold mb-2 text-white">
-                {work.title}
-              </h3>
-              <p className="text-zinc-300 mb-4">{work.summary}</p>
-              <div className="flex flex-wrap gap-2">
-                {work.technologies.map((tech: string) => (
-                  <span
-                    key={tech}
-                    className="bg-zinc-700/50 text-zinc-200 px-2 py-1 rounded text-sm"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
+              ./view-work
+            </a>
+            <a
+              href="/about"
+              className="  text-xs px-4 py-2 border border-zinc-600 text-zinc-300 hover:border-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-all rounded"
+            >
+              ./about-me
+            </a>
+            <a
+              href="https://cal.com/sagarmusabbir"
+              target="_blank"
+              rel="noopener"
+              className="  text-xs px-4 py-2 border border-green-700/60 text-green-400 hover:border-green-500 hover:bg-green-900/20 transition-all rounded"
+            >
+              ./book-a-call
+            </a>
+            <a
+              href="/contact"
+              className="  text-xs px-4 py-2 border border-zinc-600 text-zinc-300 hover:border-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-all rounded"
+            >
+              ./contact
+            </a>
+          </div>
         </div>
-        <div className="text-center mt-8">
-          <a
-            href="/portfolio"
-            className="text-zinc-300 hover:text-white hover:underline transition-colors"
-          >
-            View all projects →
-          </a>
+      </div>
+
+      {/* Recent Work */}
+      <div className="term-window">
+        <div className="term-bar">
+          <span className="  text-xs text-zinc-400 ml-10">
+            musabbir@portfolio — ~/work
+          </span>
         </div>
-      </section>
+        <div className="p-6">
+          <p className="term-prompt mb-6">ls -la work/ | head -3</p>
+          <div className="grid md:grid-cols-3 gap-4">
+            {recentWorks.map((work: any) => (
+              <a
+                key={work.slug}
+                href={`https://thirdbracket.co.uk/work/${work.slug}`}
+                target="_blank"
+                rel="noopener"
+                className="group border border-zinc-700/50 hover:border-zinc-500 bg-zinc-800/30 hover:bg-zinc-800/60 rounded transition-all overflow-hidden"
+              >
+                {work.heroImage?.url && (
+                  <Image
+                    width={400}
+                    height={200}
+                    src={`https://thirdbracket.co.uk${work.heroImage.url}`}
+                    alt={work.title}
+                    className="w-full h-36 object-cover border-b border-zinc-700/50"
+                  />
+                )}
+                <div className="p-4">
+                  <p className="text-xs text-zinc-500   mb-1">./work/</p>
+                  <h3 className="text-sm font-bold text-white group-hover:text-zinc-200 mb-2 leading-tight">
+                    {work.title}
+                  </h3>
+                  <div className="flex flex-wrap gap-1">
+                    {work.technologies?.slice(0, 3).map((tech: string) => (
+                      <span
+                        key={tech}
+                        className="  text-xs text-zinc-500 border border-zinc-700 px-1.5 py-0.5 rounded"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+          {recentWorks.length === 0 && (
+            <p className="text-zinc-600   text-sm">// no results</p>
+          )}
+          <div className="mt-6 pt-4 border-t border-zinc-800">
+            <a
+              href="/portfolio"
+              className="  text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
+            >
+              $ cd work/ &amp;&amp; ls -la{" "}
+              <span className="text-zinc-600">→ view all</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Recent Blog */}
+      <div className="term-window">
+        <div className="term-bar">
+          <span className="  text-xs text-zinc-400 ml-10">
+            musabbir@portfolio — ~/blog
+          </span>
+        </div>
+        <div className="p-6">
+          <p className="term-prompt mb-6">ls -la blog/ | head -3</p>
+          <div className="grid md:grid-cols-3 gap-4">
+            {recentBlogs.map((blog: any) => (
+              <a
+                key={blog.slug}
+                href={`https://thirdbracket.co.uk/blog/${blog.slug}`}
+                target="_blank"
+                rel="noopener"
+                className="group border border-zinc-700/50 hover:border-zinc-500 bg-zinc-800/30 hover:bg-zinc-800/60 rounded transition-all overflow-hidden"
+              >
+                {blog.featuredImage?.url && (
+                  <Image
+                    width={400}
+                    height={200}
+                    src={`https://thirdbracket.co.uk${blog.featuredImage.url}`}
+                    alt={blog.title}
+                    className="w-full h-36 object-cover border-b border-zinc-700/50"
+                  />
+                )}
+                <div className="p-4">
+                  <p className="text-xs text-zinc-500   mb-1">./blog/</p>
+                  <h3 className="text-sm font-bold text-white group-hover:text-zinc-200 mb-2 leading-tight">
+                    {blog.title}
+                  </h3>
+                  <p className="text-xs text-zinc-500  ">
+                    {blog.publishedAt
+                      ? new Date(blog.publishedAt).toLocaleDateString("en-GB")
+                      : ""}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
+          {recentBlogs.length === 0 && (
+            <p className="text-zinc-600   text-sm">// no results</p>
+          )}
+          <div className="mt-6 pt-4 border-t border-zinc-800">
+            <a
+              href="/blog"
+              className="  text-xs text-zinc-500 hover:text-zinc-300 transition-colors"
+            >
+              $ cd blog/ &amp;&amp; ls -la{" "}
+              <span className="text-zinc-600">→ view all</span>
+            </a>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
