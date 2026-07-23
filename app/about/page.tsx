@@ -11,7 +11,7 @@ export default function AboutPage() {
             <p className="term-prompt mb-4 text-base">whoami</p>
             <p className="text-zinc-300 text-base leading-relaxed mb-3">
               Full-stack developer and designer passionate about building digital
-              experiences that make a difference. Co-founder of{" "}
+              experiences that make a difference. Founder of{" "}
               <a
                 href="https://thirdbracket.co.uk"
                 target="_blank"
@@ -19,8 +19,13 @@ export default function AboutPage() {
                 className="text-zinc-100 border-b border-zinc-500 hover:border-zinc-300 transition-colors"
               >
                 Third Bracket
+              </a> & <a href="https://bayxbengal.com"
+                target="_blank"
+                rel="noopener"
+                className="text-zinc-100 border-b border-zinc-500 hover:border-zinc-300 transition-colors"
+              >
+              BayofBengal
               </a>
-              , a web design and branding agency based in Manchester.
             </p>
             <p className="text-zinc-400 text-base leading-relaxed">
               Available for freelance collaborations. Let&apos;s build something great together.
@@ -46,14 +51,14 @@ export default function AboutPage() {
                   <li><span className="text-zinc-600">→ </span>React / Next.js</li>
                   <li><span className="text-zinc-600">→ </span>TypeScript</li>
                   <li><span className="text-zinc-600">→ </span>Tailwind CSS</li>
-                  <li><span className="text-zinc-600">→ </span>Vue.js</li>
+                  <li><span className="text-zinc-600">→ </span>PayloadCMS</li>
                 </ul>
               </div>
               <div className="border border-zinc-700/50 rounded p-4">
                 <p className="font-mono text-sm text-zinc-400 mb-3">// backend</p>
                 <ul className="space-y-2 font-mono text-base text-zinc-300">
                   <li><span className="text-zinc-600">→ </span>Node.js</li>
-                  <li><span className="text-zinc-600">→ </span>Python</li>
+                  <li><span className="text-zinc-600">→ </span>Javascript</li>
                   <li><span className="text-zinc-600">→ </span>PostgreSQL</li>
                   <li><span className="text-zinc-600">→ </span>MongoDB</li>
                 </ul>
