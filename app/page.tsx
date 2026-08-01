@@ -22,7 +22,7 @@ export default async function HomePage() {
             Musabbir Sagar
           </h1>
           <p className="text-zinc-400 text-sm mb-6">
-            Full-stack developer &amp; designer. Co-founder at{" "}
+            Founder of{" "}
             <a
               href="https://thirdbracket.co.uk"
               target="_blank"
@@ -30,8 +30,21 @@ export default async function HomePage() {
               className="text-zinc-300 hover:text-white border-b border-zinc-600 hover:border-zinc-400 transition-all"
             >
               Third Bracket
+            </a> and    <a
+              href="https://www.bayxbengal.com"
+              target="_blank"
+              rel="noopener"
+              className="text-zinc-300 hover:text-white border-b border-zinc-600 hover:border-zinc-400 transition-all"
+            >
+              BayofBengal
+            </a>. Creator of <a
+              href="https://www.thirdbracket.co.uk/bracketui"
+              target="_blank"
+              rel="noopener"
+              className="text-zinc-300 hover:text-white border-b border-zinc-600 hover:border-zinc-400 transition-all"
+            >
+              Bracket UI
             </a>
-            , a web design &amp; branding agency based in Manchester.
           </p>
 
           <p className="term-prompt mb-4">ls ./actions</p>
