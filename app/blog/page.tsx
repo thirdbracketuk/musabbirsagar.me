@@ -5,10 +5,12 @@ export default async function BlogPage() {
   const blogs = await fetchBlogs();
 
   return (
-    <main className="max-w-4xl mx-auto px-4 py-8">
+    <main className="max-w-5xl mx-auto px-4 py-8">
       <div className="term-window">
         <div className="term-bar">
-          <span className="font-mono text-xs text-zinc-400 ml-10">musabbir@portfolio — ~/blog</span>
+          <span className="font-mono text-xs text-zinc-400 ml-10">
+            musabbir@portfolio — ~/blog
+          </span>
         </div>
         <div className="p-6">
           <p className="term-prompt mb-6">ls -la blog/</p>

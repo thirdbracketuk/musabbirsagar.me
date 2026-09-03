@@ -4,24 +4,29 @@ import { HiOutlineCalendar } from "react-icons/hi";
 
 export default function ContactPage() {
   return (
-    <main className="max-w-4xl mx-auto px-4 py-8">
-      <div className="term-window max-w-2xl mx-auto">
+    <main className="max-w-5xl mx-auto px-4 py-8">
+      <div className="term-window  mx-auto">
         <div className="term-bar">
-          <span className="font-mono text-sm text-zinc-300">musabbir@portfolio — ~/contact</span>
+          <span className="font-mono text-sm text-zinc-300">
+            musabbir@portfolio — ~/contact
+          </span>
         </div>
         <div className="p-6 space-y-6">
-
           <p className="term-prompt text-base">cat contact.info</p>
 
           {/* Book a call — most prominent */}
           <div className="border border-green-700/50 bg-green-900/10 rounded p-5">
-            <p className="font-mono text-sm text-zinc-400 mb-3">// preferred contact method</p>
+            <p className="font-mono text-sm text-zinc-400 mb-3">
+              // preferred contact method
+            </p>
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <HiOutlineCalendar className="w-5 h-5 text-green-400" />
                 <div>
                   <p className="text-base font-bold text-white">Book a call</p>
-                  <p className="font-mono text-sm text-zinc-400 mt-0.5">30 min · free</p>
+                  <p className="font-mono text-sm text-zinc-400 mt-0.5">
+                    30 min · free
+                  </p>
                 </div>
               </div>
               <a
@@ -37,7 +42,9 @@ export default function ContactPage() {
 
           {/* Contact info */}
           <div className="border border-zinc-700/50 rounded p-5">
-            <p className="font-mono text-sm text-zinc-400 mb-4">// direct contact</p>
+            <p className="font-mono text-sm text-zinc-400 mb-4">
+              // direct contact
+            </p>
             <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <HiOutlineMail className="w-5 h-5 text-zinc-400" />
@@ -50,14 +57,18 @@ export default function ContactPage() {
               </div>
               <div className="flex items-center gap-4">
                 <HiOutlineLocationMarker className="w-5 h-5 text-zinc-400" />
-                <span className="font-mono text-base text-zinc-300">Bangladesh &amp; UK</span>
+                <span className="font-mono text-base text-zinc-300">
+                  Bangladesh &amp; UK
+                </span>
               </div>
             </div>
           </div>
 
           {/* Social */}
           <div className="border border-zinc-700/50 rounded p-5">
-            <p className="font-mono text-sm text-zinc-400 mb-4">// social links</p>
+            <p className="font-mono text-sm text-zinc-400 mb-4">
+              // social links
+            </p>
             <div className="space-y-4">
               <a
                 href="https://github.com/sagarmusabbir/sagarmusabbir"
@@ -94,7 +105,6 @@ export default function ContactPage() {
               </a>
             </div>
           </div>
-
         </div>
       </div>
     </main>

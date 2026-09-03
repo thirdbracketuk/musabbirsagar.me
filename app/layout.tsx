@@ -53,7 +53,9 @@ export default function RootLayout({
                 className="flex items-center gap-2 px-3 py-2 rounded-full text-zinc-400 hover:text-white hover:bg-zinc-700/50 transition-all text-sm"
               >
                 <HiOutlineUser className="w-5 h-5" />
-                <span className="hidden md:inline font-mono text-xs">about</span>
+                <span className="hidden md:inline font-mono text-xs">
+                  about
+                </span>
               </a>
               <a
                 href="/portfolio"
@@ -74,7 +76,9 @@ export default function RootLayout({
                 className="flex items-center gap-2 px-3 py-2 rounded-full text-zinc-400 hover:text-white hover:bg-zinc-700/50 transition-all text-sm"
               >
                 <HiOutlineMail className="w-5 h-5" />
-                <span className="hidden md:inline font-mono text-xs">contact</span>
+                <span className="hidden md:inline font-mono text-xs">
+                  contact
+                </span>
               </a>
             </div>
           </div>
@@ -90,7 +94,7 @@ export default function RootLayout({
                 <span className="text-zinc-600">$ </span>
                 <span>musabbir@portfolio</span>
                 <span className="text-zinc-600"> — </span>
-                <span>© 2025</span>
+                <span>© 2026</span>
               </div>
               <div className="flex items-center gap-4">
                 <a
@@ -122,14 +126,23 @@ export default function RootLayout({
                 </a>
               </div>
               <div className="font-mono text-xs text-zinc-400">
-                Co-founder at{" "}
+                Founder of{" "}
                 <a
-                  href="https://thirdbracket.co.uk"
+                  href="https://www.thirdbracket.co.uk"
                   target="_blank"
                   rel="noopener"
                   className="text-zinc-200 hover:text-white transition-colors"
                 >
                   Third Bracket
+                </a>{" "}
+                and{" "}
+                <a
+                  href="https://www.bayxbengal.com"
+                  target="_blank"
+                  rel="noopener"
+                  className="text-zinc-200 hover:text-white transition-colors"
+                >
+                  Bay X Bengal
                 </a>
               </div>
             </div>
