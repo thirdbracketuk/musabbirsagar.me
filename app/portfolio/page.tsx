@@ -87,7 +87,7 @@ export default async function PortfolioPage() {
     <main className="max-w-5xl mx-auto px-4 py-8">
       <div className="term-window">
         <div className="term-bar">
-          <span className="font-mono text-xs text-zinc-400 ml-10">
+          <span className="font-mono text-xs text-zinc-400 ">
             musabbir@portfolio — ~/work
           </span>
         </div>

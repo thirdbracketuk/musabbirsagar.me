@@ -8,11 +8,11 @@ export default async function HomePage() {
   const recentWorks = works.slice(0, 3);
 
   return (
-    <main className="max-w-4xl mx-auto px-4 py-8 space-y-8">
+    <main className="max-w-5xl mx-auto px-4 py-8 space-y-8">
       {/* Hero terminal window */}
       <div className="term-window">
         <div className="term-bar">
-          <span className=" text-xs text-zinc-400 ml-10">
+          <span className=" text-xs text-zinc-400 ">
             musabbir@portfolio — ~
           </span>
         </div>

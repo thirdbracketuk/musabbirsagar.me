@@ -7,7 +7,7 @@ export default function ContactPage() {
     <main className="max-w-5xl mx-auto px-4 py-8">
       <div className="term-window  mx-auto">
         <div className="term-bar">
-          <span className="font-mono text-sm text-zinc-300">
+          <span className="font-mono text-xs text-zinc-300">
             musabbir@portfolio — ~/contact
           </span>
         </div>
